@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import { GlobalState } from 'src/store/types';
 
 const send = require('../../../../../../../assets/send_button.svg') as string;
+const image = require('../../../../../../../assets/send_image.svg') as string;
 
 import './style.scss';
 
@@ -12,11 +13,12 @@ type Props = {
   disabledInput: boolean;
   autofocus: boolean;
   sendMessage: (event: any) => void;
+  sendImage: (event: any) => void;
   buttonAlt: string;
   onTextInputChange?: (event: any) => void;
 }
 
-function Sender({ sendMessage, placeholder, disabledInput, autofocus, onTextInputChange, buttonAlt }: Props) {
+function Sender({ sendMessage, placeholder, disabledInput, autofocus, onTextInputChange, buttonAlt, sendImage}: Props) {
   const showChat = useSelector((state: GlobalState) => state.behavior.showChat);
   const inputRef = useRef(null);
   // @ts-ignore
@@ -35,6 +37,9 @@ function Sender({ sendMessage, placeholder, disabledInput, autofocus, onTextInpu
         autoComplete="off"
         onChange={onTextInputChange}
       />
+      <button type="button" className="rcw-send rcw-send-image" onClick={sendImage}>
+        <img src={image} className="rcw-send-icon" alt={buttonAlt} />
+      </button>
       <button type="submit" className="rcw-send">
         <img src={send} className="rcw-send-icon" alt={buttonAlt} />
       </button>

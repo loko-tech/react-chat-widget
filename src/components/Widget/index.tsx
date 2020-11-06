@@ -29,6 +29,7 @@ type Props = {
   handleSubmit?: AnyFunction;
   customListMode?: boolean;
   customList?: Array<JSX.Element>;
+  sendImage: AnyFunction;
 }
 
 function Widget({
@@ -53,7 +54,8 @@ function Widget({
   zoomStep,
   handleSubmit,
   customListMode,
-  customList
+  customList,
+  sendImage
 }: Props) {
   const dispatch = useDispatch();
 
@@ -104,6 +106,7 @@ function Widget({
       zoomStep={zoomStep}
       customListMode={customListMode}
       customList={customList}
+      sendImage={sendImage}
     />
   );
 }

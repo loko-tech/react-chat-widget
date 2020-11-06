@@ -49,7 +49,13 @@ export default class App extends Component {
           handleQuickButtonClicked={this.handleQuickButtonClicked}
           imagePreview
           handleSubmit={this.handleSubmit}
-          customListMode={true}
+          customListMode={false}
+          sendImage={() => {
+            console.log('fu')
+            toggleMsgLoader()
+            alert("reud")
+            toggleMsgLoader()
+          }}
           customList={[
             <div style={{ padding: 12, margin: '12px 12px', backgroundColor: '#f4f7f9' }}>
               <p>屎</p>

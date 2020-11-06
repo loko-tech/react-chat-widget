@@ -36,6 +36,7 @@ type Props = {
   zoomStep?: number;
   customListMode?: boolean;
   customList?: Array<JSX.Element>
+  sendImage: (event: any) => void;
 }
 
 function WidgetLayout({
@@ -61,6 +62,7 @@ function WidgetLayout({
   zoomStep,
   customListMode,
   customList,
+  sendImage,
 }: Props) {
   const dispatch = useDispatch();
   const { dissableInput, showChat, visible } = useSelector((state: GlobalState) => ({
@@ -143,6 +145,7 @@ function WidgetLayout({
           onTextInputChange={onTextInputChange}
           sendButtonAlt={sendButtonAlt}
           showTimeStamp={showTimeStamp}
+          sendImage={sendImage}
         />
       }
       {customLauncher ?

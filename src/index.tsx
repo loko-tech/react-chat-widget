@@ -30,6 +30,7 @@ type Props = {
   handleSubmit?: AnyFunction;
   customListMode?: boolean;
   customList?: Array<JSX.Element>;
+  sendImage: AnyFunction
 } & typeof defaultProps;
 
 function ConnectedWidget({
@@ -55,6 +56,7 @@ function ConnectedWidget({
   handleSubmit,
   customListMode,
   customList,
+  sendImage,
 }: Props) {
   return (
     <Provider store={store}>
@@ -81,6 +83,7 @@ function ConnectedWidget({
         handleSubmit={handleSubmit}
         customListMode={customListMode}
         customList={customList}
+        sendImage={sendImage}
       />
     </Provider>
   );
