@@ -37,9 +37,9 @@ function Sender({ sendMessage, placeholder, disabledInput, autofocus, onTextInpu
         autoComplete="off"
         onChange={onTextInputChange}
       />
-      <button type="button" className="rcw-send rcw-send-image" onClick={sendImage}>
+      {sendImage && <button type="button" className="rcw-send rcw-send-image" onClick={sendImage}>
         <img src={image} className="rcw-send-icon" alt={buttonAlt} />
-      </button>
+      </button>}
       <button type="submit" className="rcw-send">
         <img src={send} className="rcw-send-icon" alt={buttonAlt} />
       </button>

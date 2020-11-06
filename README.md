@@ -185,7 +185,9 @@ export default App;
 |**sendButtonAlt**|string|NO|'Send'|Send button alt for a11y purposes|
 |**handleTextInputChange**|(event) => any|NO| |Prop that triggers on input change|
 |**handleSubmit**|(event) => any|NO| |Prop that triggers when a message is submitted, used for custom validation|
-
+|**customListMode**|boolean|NO|false|Custom List Mode on/off|
+|**customList**|JSX.element[]|NO| |Custom elements|
+|**sendImage**|(event) => any|NO| |Callback with send image button clicked, if undefeined, the send button will be hide|
 #### Styles
 
 To change the styles you need the widget to have, simply override the CSS classes wrapping them within the containers and add your own style to them! All classes are prefixed with `rcw-` so they don't override your other classes in case you are not hasing them. 

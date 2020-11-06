@@ -17,7 +17,7 @@ export default class App extends Component {
     setTimeout(() => {
       toggleMsgLoader();
       if (newMessage === 'fruits') {
-        setQuickButtons([ { label: 'Apple', value: 'apple' }, { label: 'Orange', value: 'orange' }, { label: 'Pear', value: 'pear' }, { label: 'Banana', value: 'banana' } ]);
+        setQuickButtons([{ label: 'Apple', value: 'apple' }, { label: 'Orange', value: 'orange' }, { label: 'Pear', value: 'pear' }, { label: 'Banana', value: 'banana' }]);
       } else {
         addResponseMessage(newMessage);
       }
@@ -30,7 +30,7 @@ export default class App extends Component {
   }
 
   handleSubmit = (msgText: string) => {
-    if(msgText.length < 80) {
+    if (msgText.length < 80) {
       addUserMessage("Uh oh, please write a bit more.");
       return false;
     }
@@ -40,7 +40,7 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        <button style={{position: 'absolute', right: 40, bottom: 150}}>test</button>
+        <button style={{ position: 'absolute', right: 40, bottom: 150 }}>test</button>
         <Widget
           title="Bienvenido"
           subtitle="Asistente virtual"
@@ -53,15 +53,16 @@ export default class App extends Component {
           sendImage={() => {
             console.log('fu')
             toggleMsgLoader()
-            alert("reud")
-            toggleMsgLoader()
+            setTimeout(() => {
+              toggleMsgLoader()
+            }, 2000)
+
           }}
           customList={[
             <div style={{ padding: 12, margin: '12px 12px', backgroundColor: '#f4f7f9' }}>
-              <p>屎</p>
+              <p></p>
               <p>202020222</p>
             </div>,
-            
           ]}
         />
       </div>
