@@ -1,4 +1,4 @@
-import React,{ useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import cn from 'classnames';
 
@@ -9,6 +9,7 @@ import { openFullscreenPreview } from '@actions';
 import Conversation from './components/Conversation';
 import Launcher from './components/Launcher';
 import FullScreenPreview from './components/FullScreenPreview';
+import CustomeList from './components/CustomeList'
 
 import './style.scss';
 
@@ -33,6 +34,8 @@ type Props = {
   showTimeStamp: boolean;
   imagePreview?: boolean;
   zoomStep?: number;
+  customListMode?: boolean;
+  customList?: Array<JSX.Element>
 }
 
 function WidgetLayout({
@@ -56,6 +59,8 @@ function WidgetLayout({
   showTimeStamp,
   imagePreview,
   zoomStep,
+  customListMode,
+  customList,
 }: Props) {
   const dispatch = useDispatch();
   const { dissableInput, showChat, visible } = useSelector((state: GlobalState) => ({
@@ -67,16 +72,16 @@ function WidgetLayout({
   const messageRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    if(showChat) {
+    if (showChat) {
       messageRef.current = document.getElementById('messages') as HTMLDivElement;
     }
     return () => {
       messageRef.current = null;
     }
   }, [showChat])
-  
+
   const eventHandle = evt => {
-    if(evt.target && evt.target.className === 'rcw-message-img') {
+    if (evt.target && evt.target.className === 'rcw-message-img') {
       const { src, alt, naturalWidth, naturalHeight } = (evt.target as HTMLImageElement);
       const obj = {
         src: src,
@@ -93,7 +98,7 @@ function WidgetLayout({
    */
   useEffect(() => {
     const target = messageRef?.current;
-    if(imagePreview && showChat) {
+    if (imagePreview && showChat) {
       target?.addEventListener('click', eventHandle, false);
     }
 
@@ -111,10 +116,17 @@ function WidgetLayout({
       className={cn('rcw-widget-container', {
         'rcw-full-screen': fullScreenMode,
         'rcw-previewer': imagePreview
-        })
+      })
       }
     >
-      {showChat &&
+      {
+        customListMode && showChat && <CustomeList 
+        title={title}
+        items={customList} 
+        className={'active'} />
+      }
+      
+      {!customListMode && showChat &&
         <Conversation
           title={title}
           subtitle={subtitle}

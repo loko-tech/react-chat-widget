@@ -28,6 +28,8 @@ type Props = {
   imagePreview?: boolean;
   zoomStep?: number;
   handleSubmit?: AnyFunction;
+  customListMode?: boolean;
+  customList?: Array<JSX.Element>;
 } & typeof defaultProps;
 
 function ConnectedWidget({
@@ -50,7 +52,9 @@ function ConnectedWidget({
   showTimeStamp,
   imagePreview,
   zoomStep,
-  handleSubmit
+  handleSubmit,
+  customListMode,
+  customList,
 }: Props) {
   return (
     <Provider store={store}>
@@ -75,6 +79,8 @@ function ConnectedWidget({
         imagePreview={imagePreview}
         zoomStep={zoomStep}
         handleSubmit={handleSubmit}
+        customListMode={customListMode}
+        customList={customList}
       />
     </Provider>
   );
