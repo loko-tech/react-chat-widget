@@ -49,7 +49,7 @@ export default class App extends Component {
           handleQuickButtonClicked={this.handleQuickButtonClicked}
           imagePreview
           handleSubmit={this.handleSubmit}
-          customListMode={false}
+          customListMode={true}
           sendImage={() => {
             console.log('fu')
             toggleMsgLoader()

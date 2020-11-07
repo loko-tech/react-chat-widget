@@ -123,6 +123,7 @@ function WidgetLayout({
     >
       {
         customListMode && showChat && <CustomeList 
+        toggleChat={onToggleConversation}
         title={title}
         items={customList} 
         className={'active'} />
