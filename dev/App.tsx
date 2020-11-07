@@ -7,7 +7,7 @@ export default class App extends Component {
   componentDidMount() {
     addResponseMessage('Welcome to this awesome chat!');
     addLinkSnippet({ link: 'https://google.com', title: 'Google' });
-    addResponseMessage('![](https://raw.githubusercontent.com/Wolox/press-kit/master/logos/logo_banner.png)');
+      
     addResponseMessage('![vertical](https://d2sofvawe08yqg.cloudfront.net/reintroducing-react/hero2x?1556470143)');
     toggleWidget();
   }

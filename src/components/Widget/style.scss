@@ -1,29 +1,42 @@
-@import 'animation';
-@import 'common';
+@import "animation";
+@import "common";
 
 .rcw-widget-container {
-  bottom: 0;
-  display: flex;
-  flex-direction: column;
-  margin: 0 20px 20px 0;
-  max-width: 370px;
-  position: fixed;
-  right: 0;
-  width: 90vw;
-  z-index: 9999;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    margin: 0 20px 20px 0;
+    max-width: 370px;
+    position: fixed;
+    right: 0;
+    width: 90vw;
+    z-index: 9999;
 }
 
 .rcw-full-screen {
-  @include widget-container-fs;
+    @include widget-container-fs;
 }
 
+// https://github.com/Wolox/react-chat-widget/issues/211
 @media screen and (max-width: 800px) {
-  .rcw-widget-container {
-    height: 100%;
-    @include widget-container-fs;
-  }
+    .rcw-widget-container {
+        @include widget-container-fs;
+        height: fit-content;
+    }
+
+    .rcw-conversation-container .rcw-title {
+        padding: 15px 0 15px;
+    }
+
+    .rcw-conversation-container {
+        height: 0%;
+    }
+
+    .rcw-conversation-container.active {
+        height: 100vh;
+    }
 }
 
 .rcw-previewer .rcw-message-img {
-  cursor: pointer;
+    cursor: pointer;
 }
