@@ -30,6 +30,7 @@ type Props = {
   customListMode?: boolean;
   customList?: Array<JSX.Element>;
   sendImage: AnyFunction;
+  onToggled: AnyFunction;
 }
 
 function Widget({
@@ -55,12 +56,14 @@ function Widget({
   handleSubmit,
   customListMode,
   customList,
-  sendImage
+  sendImage,
+  onToggled
 }: Props) {
   const dispatch = useDispatch();
 
   const toggleConversation = () => {
     dispatch(toggleChat());
+    onToggled && onToggled()
   }
 
   const handleMessageSubmit = (event) => {

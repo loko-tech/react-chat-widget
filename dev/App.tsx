@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 
-import { Widget, addResponseMessage, setQuickButtons, toggleMsgLoader, addLinkSnippet, toggleWidget } from '../index';
+import { Widget, addResponseMessage, setQuickButtons, toggleMsgLoader, addLinkSnippet, toggleWidget, isWidgetOpened } from '../index';
 import { addUserMessage } from '..';
 
 export default class App extends Component {
   componentDidMount() {
     addResponseMessage('Welcome to this awesome chat!');
     addLinkSnippet({ link: 'https://google.com', title: 'Google' });
-      
+
     addResponseMessage('![vertical](https://d2sofvawe08yqg.cloudfront.net/reintroducing-react/hero2x?1556470143)');
     toggleWidget();
   }
@@ -49,7 +49,7 @@ export default class App extends Component {
           handleQuickButtonClicked={this.handleQuickButtonClicked}
           imagePreview
           handleSubmit={this.handleSubmit}
-          customListMode={true}
+          customListMode={false}
           sendImage={() => {
             console.log('fu')
             toggleMsgLoader()
@@ -57,6 +57,9 @@ export default class App extends Component {
               toggleMsgLoader()
             }, 2000)
 
+          }}
+          onToggled={() => {
+            console.log('isOpened : ' + isWidgetOpened())
           }}
           customList={[
             <div style={{ padding: 12, margin: '12px 12px', backgroundColor: '#f4f7f9' }}>

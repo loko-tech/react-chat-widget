@@ -24,7 +24,7 @@ function Header({ title, subtitle, toggleChat, showCloseButton, titleAvatar }: P
         {titleAvatar && <img src={titleAvatar} className="avatar" alt="profile" />}
         {title}
       </h4>
-      <span>{subtitle}</span>
+      {subtitle ? <span>{subtitle}</span> : null}
     </div>
   );
 }

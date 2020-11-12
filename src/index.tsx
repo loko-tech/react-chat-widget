@@ -30,7 +30,8 @@ type Props = {
   handleSubmit?: AnyFunction;
   customListMode?: boolean;
   customList?: Array<JSX.Element>;
-  sendImage: AnyFunction
+  sendImage: AnyFunction,
+  onToggled: AnyFunction
 } & typeof defaultProps;
 
 function ConnectedWidget({
@@ -57,6 +58,7 @@ function ConnectedWidget({
   customListMode,
   customList,
   sendImage,
+  onToggled,
 }: Props) {
   return (
     <Provider store={store}>
@@ -84,6 +86,7 @@ function ConnectedWidget({
         customListMode={customListMode}
         customList={customList}
         sendImage={sendImage}
+        onToggled={onToggled}
       />
     </Provider>
   );
