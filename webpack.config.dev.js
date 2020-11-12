@@ -18,10 +18,12 @@ module.exports = {
   target: 'web',
   mode: 'development',
   devServer: {
+    host: '0.0.0.0',
     contentBase: path.resolve(__dirname, 'dist'),
     compress: false,
     port: 3000,
-    hot: true
+    hot: true,
+    disableHostCheck: true,
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.js']

@@ -117,7 +117,8 @@ function WidgetLayout({
     <div
       className={cn('rcw-widget-container', {
         'rcw-full-screen': fullScreenMode,
-        'rcw-previewer': imagePreview
+        'rcw-previewer': imagePreview,
+        'active': showChat
       })
       }
     >
@@ -126,7 +127,7 @@ function WidgetLayout({
         toggleChat={onToggleConversation}
         title={title}
         items={customList} 
-        className={'active'} />
+        className={showChat ? 'active' : 'hidden'} />
       }
       
       {!customListMode && showChat &&
